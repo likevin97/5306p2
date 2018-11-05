@@ -1,0 +1,10 @@
+Generally, we like your proposal. 
+
+Specific feedback:
+We think you should look at the top 20 airports rather than 50; they are likely more similar to compare between. We don't think you should ask the second question What are the most common issues for each airport?; just stick to the first question. 
+
+We think you need to associate airport codes with city names as well. Some airports (JFK, DFW, LAX) are referred to as such, but not all. In addition, not everyone knows the airport codes or would tweet them. 
+
+One extension that might be interesting to look at is whether the worst airports are airline hubs?
+
+
