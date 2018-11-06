@@ -1,4 +1,6 @@
 import csv
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Load data
 with open("Tweets.csv") as f:
@@ -32,7 +34,7 @@ airports = [
     ["MSP", "Minneapolis", "minneapolis"],
     ["DTW", "Detroit", "detroit"],
     ["FLL", "Fort Lauderdale", "fort lauderdale"],
-    ["PHL", "Philadelphia", "philadelphia", "Philly", "philly"],
+    ["PHL", "Philadelphia", "philadelphia", "Philly", "philly"]
 ]
 
 def airportReferences(text):
@@ -60,9 +62,35 @@ for k,v in airport_tweets.items():
     print()
 
 print("====== Sentiment Counts ======")
+t_pos_data = []
+t_neg_data = []
 for airport_code, tweets in airport_tweets.items():
     sents = list(map(lambda twt: twt["airline_sentiment"], tweets))
     pos = list(filter(lambda x: x == "positive", sents))
     neg = list(filter(lambda x: x == "negative", sents))
     neut = list(filter(lambda x: x == "neutral", sents))
-    print(airport_code, "[ pos:", len(pos), "// neg:", len(neg), "// neut:", len(neut), "]")
+    t_pos_data.append((round(len(pos)/len(sents),2), airport_code))
+    t_neg_data.append((round(len(neg)/len(sents),2), airport_code))
+    #print(airport_code, "[ pos:", round(len(pos)/len(sents),2), "// neg:", round(len(neg)/len(sents),2), "// neut:", round(len(neut)/len(sents),2), "]")
+
+N = len(airports)
+ind = np.arange(N)
+width = 0.8
+
+t_pos_data.sort()
+t_pos_data.reverse()
+pos_airports = [t[1] for t in t_pos_data]
+pos_data = [t[0] for t in t_pos_data]
+t_neg_data.sort()
+t_neg_data.reverse()
+neg_airports = [t[1] for t in t_neg_data]
+neg_data = [t[0] for t in t_neg_data]
+
+p = plt.bar(ind, pos_data, width)
+plt.ylabel('Positive Tweet Percentage')
+plt.xlabel('Airport')
+plt.title('Percentage of Positive Tweets by Airport')
+plt.xticks(ind, pos_airports)
+plt.yticks(np.arange(0, 0.41, 0.1))
+plt.xticks(fontsize=9, rotation=90)
+plt.show()

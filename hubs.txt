@@ -1,0 +1,13 @@
+Airport Hubs
+
+Worst 10 airports
+MIA - American Airlines, Miami Air International, Xtra Airways
+IAH - United Airlines
+PHL - American Airlines, UPS Airlines
+SFO - United Airlines, Alaska Airlines
+CLT - American Airlines
+PHX - American Airlines, Ameriflight
+DEN - United Airlines, Frontier Airlines
+BOS - Cape Air
+JFK - American Airlines, Delta Air Lines, JetBlue Airways
+EWR - Fedex Express, United Airlines 
